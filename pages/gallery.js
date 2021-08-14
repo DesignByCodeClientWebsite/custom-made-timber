@@ -22,7 +22,7 @@ const Gallery = () => {
           <h2 className="mt-0">COMING SOON</h2>
           <p>
             For now checkout our images on{' '}
-            <a href={process.env.NEXT_PUBLIC_INSTAGRAM_PAGE} target="_blank" rel="nofollow">
+            <a href={process.env.NEXT_PUBLIC_INSTAGRAM_PAGE} target="_blank" rel="noreferrer">
               Instagram
             </a>{' '}
           </p>
