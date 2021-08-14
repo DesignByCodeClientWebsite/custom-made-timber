@@ -1,0 +1,78 @@
+
+.card
+  position: relative
+  background-color: var(--white)
+  display: flex
+  flex-direction: column
+  overflow: hidden
+  max-width: 100%
+  margin: 45px 0
+  border: solid 2px var(--gray-300)
+  transition: all 0.25 ease
+  z-index: 10
+  box-shadow: rgba(0,0,0,0.15) 30px 10px 40px
+  @media screen and (min-width: 600px)
+    flex-direction: row
+    backgound: pink
+
+  &:hover .click
+    transform: rotate(90deg) translateY(0px)
+
+  a
+    color: var(--primary)
+    text-decoration: none
+
+
+.avatar
+  border: solid 10px var(--gray-800)
+  border-radius: 50%
+  overflow: hidden
+  height: 120px
+  width: 120px
+  margin-bottom: 10px
+
+.person
+  position: relative
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  flex: 0 0 200px
+  background: linear-gradient(90deg, var(--gray-700), var(--black))
+  padding: 30px
+  --avatar-size: 100px
+  color: var(--white)
+  text-shadow: rgba(0,0,0,0.5) 2px 2px 2px
+
+  h3
+    font-weight: bold
+
+  &::after
+    @media screen and (min-width: 600px)
+      position: absolute
+      content: ''
+      width: 0
+      height: 0
+      border-left: 15px solid var(--black)
+      border-top: 15px transparent solid
+      border-bottom: 15px transparent solid
+      right: -15px
+      top: 50%
+      transform: translateY(-50%)
+
+
+.details
+  padding: 30px
+  flex: 0 0 1
+  display: flex
+  flex-direction: column
+  justify-content: space-evenly
+
+  & header
+    font-size: 120%
+    font-weight: bold
+    border-bottom: solid 1px var(--gray-200)
+    margin-top: 10px
+    margin-bottom: 10px
+    padding-bottom: 10px
+
