@@ -14,7 +14,7 @@ const images = importAll(require.context('./images/', false, /\.(png|jpe?g|svg)$
 const GalleryImage = ({ image }) => {
   return (
     <a href={image.default.src} className="xs-col-3">
-      <Tilt>
+      <Tilt className="border--white border--w-5">
         <Image blurDataURL={image.default.blurDataURL} src={image.default.src} layout="responsive" width={120} height={120} />
       </Tilt>
     </a>
@@ -40,7 +40,7 @@ const Gallery = () => {
       </Head>
       <div className="row">
         <div className="md-col-12">
-          <h1 className="m-0">Gallery</h1>
+          <h2 className="m-0">Gallery</h2>
           <Image src={instagram} />
         </div>
       </div>
