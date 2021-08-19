@@ -1,15 +1,37 @@
-import React from 'react'
+import React, { Fragment, useEffect, useRef } from 'react'
 import Head from 'next/head'
-import dynamic from 'next/dynamic'
+import Tilt from '../components/tilt/Tilt'
+import Image from 'next/image'
+import SimpleLightbox from 'simplelightbox'
+import instagram from '../assets/img/instagram.png'
 
-const SliderBig = dynamic(
-  () => {
-    return import('./../components/Slider/SliderBig')
-  },
-  { ssr: false }
-)
+function importAll(r) {
+  return r.keys().map(r)
+}
+
+const images = importAll(require.context('./images/', false, /\.(png|jpe?g|svg)$/))
+
+const GalleryImage = ({ image }) => {
+  return (
+    <a href={image.default.src} className="xs-col-3">
+      <Tilt>
+        <Image blurDataURL={image.default.blurDataURL} src={image.default.src} layout="responsive" width={120} height={120} />
+      </Tilt>
+    </a>
+  )
+}
 
 const Gallery = () => {
+  const currentRef = useRef()
+
+  useEffect(() => {
+    return new SimpleLightbox(currentRef.current.querySelectorAll('a'), {
+      animationSpeed: 200,
+      caption: true,
+    })
+    console.log(currentRef.current.querySelectorAll('a'))
+  })
+
   return (
     <div className="wrapper my-9">
       <Head>
@@ -19,15 +41,15 @@ const Gallery = () => {
       <div className="row">
         <div className="md-col-12">
           <h1 className="m-0">Gallery</h1>
-          <h2 className="mt-0">COMING SOON</h2>
-          <p>
-            For now checkout our images on{' '}
-            <a href={process.env.NEXT_PUBLIC_INSTAGRAM_PAGE} target="_blank" rel="noreferrer">
-              Instagram
-            </a>{' '}
-          </p>
-          {/*<SliderBig />*/}
+          <Image src={instagram} />
         </div>
+      </div>
+      <div ref={currentRef} className="row">
+        {images.map((image, index) => (
+          <Fragment key={index.toString()}>
+            <GalleryImage image={image} />
+          </Fragment>
+        ))}
       </div>
     </div>
   )

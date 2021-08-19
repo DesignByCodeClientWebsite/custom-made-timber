@@ -4,24 +4,8 @@ import Nav from '../components/nav/Nav'
 import AppFooter from '../components/footer/AppFooter'
 import HeadRoom from '../components/nav/HeadRoom'
 import SocialBanner from '../components/social/SocialBanner'
-import { useRouter } from 'next/router'
-import { useEffect } from 'react'
-import * as gtag from '../lib/gtag'
 
 function MyApp({ Component, pageProps }) {
-  const router = useRouter()
-
-  useEffect(() => {
-    const handleRouteChange = (url) => {
-      gtag.pageview(url)
-    }
-
-    router.events.on('routeChangeComplete', handleRouteChange)
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange)
-    }
-  }, [router.events])
-
   return (
     <>
       <NextNprogress color="#60b5ba" startPosition={0.3} stopDelayMs={200} height={3} showOnShallow={true} />
