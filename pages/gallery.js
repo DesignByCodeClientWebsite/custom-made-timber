@@ -15,7 +15,14 @@ const GalleryImage = ({ image }) => {
   return (
     <a href={image.default.src} className="xs-col-3">
       <Tilt className="border--white border--w-5">
-        <Image blurDataURL={image.default.blurDataURL} src={image.default.src} layout="responsive" width={120} height={120} />
+        <Image
+          blurDataURL={image.default.blurDataURL}
+          src={image.default.src}
+          layout="responsive"
+          width={120}
+          height={120}
+          alt="Instagram images"
+        />
       </Tilt>
     </a>
   )
@@ -29,7 +36,7 @@ const Gallery = () => {
       animationSpeed: 200,
       caption: true,
     })
-    console.log(currentRef.current.querySelectorAll('a'))
+    // console.log(currentRef.current.querySelectorAll('a'))
   })
 
   return (
