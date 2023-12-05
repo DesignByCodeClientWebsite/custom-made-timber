@@ -16,7 +16,7 @@ const ContactCard = ({ className }) => {
           <Image height={120} width={100} layout="intrinsic" src={avatar} alt="Coenie Marais Avatar" />
         </div>
         <small>Owner</small>
-        <h3 className="m-0 p-0">Coenie Marias</h3>
+        <h3 className="m-0 p-0">Coenie Marais</h3>
       </div>
       <div className={style.details}>
         <div>
